@@ -1,0 +1,225 @@
+
+
+#cards-footer a {
+    color: #747474;
+
+}
+
+#cards-footer h1 {
+    font-size: 1.625em;
+}
+
+body {
+    font-weight: 400;
+    font-family: Roboto,Arial,sans-serif;
+    color: #747474;
+    width:80%;
+    margin-right: 10%;
+    margin-left:10%;
+
+}
+
+li a {
+    padding-left: 1em;
+    padding-right:1em;
+}
+header .navbar-nav {
+    flex-direction:row;
+}
+
+
+#topmost-row {
+    font-size: .9375rem;
+    font-weight: 400;
+    line-height: 2em;
+    padding: 1.33em 0;
+    padding-top: 1.33em;
+    padding-right: 0px;
+    padding-bottom: 1.33em;
+    padding-left: 0px;
+    margin-bottom:92px;
+}
+
+#topmost-row a{
+    color: #ababab;
+    text-decoration: none;
+    padding: 0 .6em;
+}
+#careers {
+    align-content: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius:15px;
+    overflow: hidden;
+}
+
+
+#cards>div{
+    height: 345px;
+}
+#cards h1 {
+    font-size: 1.625em;
+    font-weight: 400;
+    color: #fff;
+    margin: .3em 0;
+}
+
+#links-row-1 svg {
+    fill: #747474;
+    width: 50%;
+}
+
+#bottom-text-column {
+    align-content: center;
+}
+
+#bottom-text {
+    text-align: center;
+    align-content: center;
+}
+
+
+#cards h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #fff;
+}
+
+#container-card-row .white-backed {
+    margin: 10px -50px 10px -50px;
+    padding: 10px 15px 0px 15px;
+    text-align: center;
+
+    background-color: #ffffff;
+}
+
+#green-background-section {
+    background-color: #d8f6f5;
+    background-image: url(https://www.docplanner.com/img/logo.png);
+    background-position-x: -80px;
+    background-position-y: 200px;
+    background-size: initial;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    margin-right: -130px;
+    margin-left: -130px;
+    padding-left: 30px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+#green-background-section h3 {
+    font-size: 1.8461538462em;
+    color: #00b39b;
+    margin: .5em 0;
+}
+
+
+
+h1 {
+    font-size: 2.125rem;
+    color: #00b39b;
+}
+
+h1,h2,h3,h4,h5 {
+    margin: 1em 0;
+    font-family: Work Sans,Arial,sans-serif;
+    font-weight: 300;
+    letter-spacing: -.3px;
+}
+
+#card-1 {
+    width:30%;
+    background:#00ccb1;
+}
+
+#card-1 .back-select,#card-1 .form-select {
+    background:#00ccb1;
+    color: #fff
+
+}
+
+#card-2 {
+    width:30%;
+    background:#3d83df ;
+}
+
+#card-2 .back-select,#card-2 .form-select  {
+    background:#3d83df;
+    color: #fff
+}
+
+
+#card-3 {
+    width:30%;
+    background: #1b2734;
+}
+
+#card-3 .back-select, #card-3 .form-select {
+    background:#1b2734;
+    color: #fff
+}
+
+
+.logo-docplanner {
+    width: 268px;
+    height: 33px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.doc-card {
+    border-radius: 15px;
+}
+
+/*
+div[class="row"] {
+    outline: 1px dotted rgba(0, 0, 0, 0.25);
+}
+
+div[class^="col-"] {
+    background-color: rgba(255, 0, 0, 0.2);
+    outline: 1px dotted rgba(0, 0, 0, 0.5);
+}
+*/
+select {
+    display: block;
+}
+
+
+#topmost-row {
+   position: fixed;
+   top: 0; /* Position the navbar at the top of the page */
+   left: 0;
+   width: 100%;
+   z-index: 3;
+   background: hsla(0,0%,100%,.98);
+}
+
+#top-buffer-zone {
+    margin-top: 140px;
+    text-align: center;
+}
+
+#text-columns {
+    margin-bottom:100px;
+    margin-top:13px;
+}
+
+.footer-border {
+    border:1px;
+    border-color: darkmagenta;
+}
+
