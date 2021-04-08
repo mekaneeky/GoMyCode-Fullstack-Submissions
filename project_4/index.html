@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"  type='text/css'>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <table id="the-table" class="table table-dark">
+        <thead>
+          <tr>
+            
+            <th scope="col"></th>
+            <th scope="col">Item</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Price</th>
+            <th scope="col">Like</th>
+          </tr>
+        </thead>
+        <tbody id="shopping">
+        </tbody>
+      </table>
+      <script>
+          initial_shopping_cart = [
+              {"name":"Flux Capacitors",
+              "qty":100,
+              "price":5000,
+              "like":true
+            },
+            {"name": "DeepThoughtRAM",
+            "qty":42,
+            "price":4200,
+            "like":true},
+            {"name": "Dubstep Gun",
+            "qty":3,
+            "price":550,
+            "like":false},
+            {"name": "Fear and Loathing In Las Vegas Hardcover",
+            "qty":1,
+            "price":30,
+            "like":true}
+          ];
+
+        var shopping_body = document.getElementById("shopping");
+
+        for (item of initial_shopping_cart) {
+
+            addNewRow(shopping_body, item);
+        };
+        calculate_total(shopping_body);
+
+
+        function increaseItem(qty_tag) {
+            var value = qty_tag.innerHTML;
+            value = parseInt(value) + 1;
+            qty_tag.innerHTML = value;
+            calculate_total(shopping_body);
+        };
+
+        function decreaseItem(qty_tag) {
+            var value = qty_tag.innerHTML;
+            value = parseInt(value);
+            if (value > 0 ){
+                value -= 1;
+                qty_tag.innerHTML = value;
+                calculate_total(shopping_body);
+            }
+            
+        };
+
+        function toggleHeart(heart_tag) {
+            if (heart_tag.style.color === '' || heart_tag.style.color === "rgb(255, 0, 255)" ) {
+                heart_tag.style.color = "#ffffff";
+            } else {
+                heart_tag.style.color = "#ff00ff";
+            }
+        };
+
+        function deleteItem(tableToAppendTo, row_to_remove) {
+            tableToAppendTo.removeChild(row_to_remove);
+            calculate_total(tableToAppendTo)
+
+        }
+
+        function calculate_total(tableToAppendTo) {
+            var table = document.getElementById("the-table");
+            sum = 0;
+            for (var i = 1, row; i < table.rows.length-1 ; i++) {
+                row = table.rows[i]
+                price = parseInt(row.children[2].innerHTML);
+                //console.log(row.children[2]);
+                qty = parseInt(row.children[3].innerHTML);
+                //console.log(qty);
+                paid= price*qty;
+                //console.log(paid);
+                sum += paid;
+            }
+
+            if (document.getElementById("total-goes-here") === null) {
+                var listItem = document.createElement("tr");
+                var empty_col = document.createElement("td");
+                var total_col = document.createElement("td");
+                var total_values_col = document.createElement("td");
+
+                total_col.innerHTML = "Total: ";
+                total_values_col.innerHTML = sum;
+                total_values_col.id = "total-goes-here"
+
+                tableToAppendTo.appendChild(listItem);
+                listItem.appendChild(empty_col.cloneNode(true));
+                listItem.appendChild(empty_col.cloneNode(true));
+
+                listItem.appendChild(total_col);
+                listItem.appendChild(total_values_col);
+                listItem.appendChild(empty_col.cloneNode(true));
+                
+            } else {
+                var total =  document.getElementById("total-goes-here");
+                total.innerHTML = sum;
+            }
+        }
+
+        function addNewRow(tableToAppendTo, item_to_append) {
+            var listItem = document.createElement("tr");
+            var col_buttons = document.createElement("td");
+            var col_name = document.createElement("td");
+            var col_qty = document.createElement("td");
+            var col_price = document.createElement("td");
+            var col_like = document.createElement("td");
+            var likeButton = document.createElement("i");
+            var delButton = document.createElement("button");
+            var addButton = document.createElement("button");
+            var subtractButton = document.createElement("button");
+            
+            //define content for columns
+            col_name.innerHTML = item_to_append.name;
+            col_qty.innerHTML = item_to_append.qty;
+            col_price.innerHTML= item_to_append.price;
+            //col_like.innerHTML = ""
+
+            // define content and class for buttons
+            likeButton.className = "fas fa-heart";
+            delButton.innerHTML = "DEL"
+            addButton.innerText = "+";
+            subtractButton.innerText = "-";
+
+            addButton.addEventListener('click', function() {
+                                                    increaseItem(col_qty)
+                                                    });
+            //console.log(col_qty.innerHTML);
+            //console.log(typeof col_qty.innerHTML);
+            subtractButton.addEventListener('click', function() { 
+                                                    decreaseItem(col_qty)
+                                                    });
+            delButton.addEventListener('click', function() { 
+                                                    deleteItem(tableToAppendTo, listItem)
+                                                    });
+            likeButton.addEventListener('click', function() {
+                                                    toggleHeart(likeButton)
+                                                    });
+
+
+            // append buttons to column
+            col_buttons.appendChild(delButton);            
+            col_buttons.appendChild(addButton);
+            col_buttons.appendChild(subtractButton);            
+            col_like.appendChild(likeButton)
+            tableToAppendTo.appendChild(listItem);
+            listItem.appendChild(col_buttons);
+            listItem.appendChild(col_name);
+            listItem.appendChild(col_qty);
+            listItem.appendChild(col_price);
+            listItem.appendChild(col_like);
+            console.log(likeButton.style.color);
+        }
+      </script>
+</body>
+</html>    
