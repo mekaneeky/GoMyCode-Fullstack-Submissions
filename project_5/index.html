@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!--correlation-->
+    </head>
+
+    <body>
+        <textarea style = "width:90%; height:400px;" onload="update_values()" onkeydown="update_values()">Enter your word here</textarea>
+        <h5 id="characters-results">Characters Found: </h5>
+        <h5 id="words-results">Words Found: </h5>
+        <h5 id="vowels-results">Vowels Found: </h5>
+    <script>
+        function update_values() {
+            var string_to_analyse = document.getElementsByTagName("textarea")[0].value
+            console.log(string_to_analyse.charAt(string_to_analyse.length-1))
+
+            word_count = 0;
+            vowel_count = 0;
+            const vowels = ["a", "e", "i", "o", "u"];
+            for (var i = 0; i < string_to_analyse.length; i++) {
+                var current_char = string_to_analyse.charAt(i);
+                
+                if (i === 0) {
+                    word_count += 1;
+                }  
+                var prev_char = string_to_analyse.charAt(i-1);
+
+                if (current_char === " " && prev_char === " ") {
+                    null;
+                } else if (current_char !== " " && prev_char === " ") {
+                    word_count += 1;
+                    console.log(current_char);
+                    console.log(prev_char);
+                    console.log("----");
+                }
+                
+
+                if (vowels.includes(current_char)) {
+                    vowel_count += 1;
+                }
+
+            }
+        
+            var char_tag = document.getElementById("characters-results");
+            var words_tag = document.getElementById("words-results");
+            var vowels_tag = document.getElementById("vowels-results");
+
+            char_tag.innerHTML = `Characters Found: ${string_to_analyse.length}`;
+            words_tag.innerHTML = `Words Found: ${word_count}`;
+            vowels_tag.innerHTML = `Vowels Found: ${vowel_count}`;
+
+        }
+
+
+
+    </script>
+    
+    </body>
+
+</html>
