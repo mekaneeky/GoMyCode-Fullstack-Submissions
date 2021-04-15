@@ -5,16 +5,35 @@ function handleName(name) {
     alert("Welcome" + name);
 }
 
-function Profile(props) {
+class Profile extends React.Component {
+
+    constructor(props) {
+        super(props);
+        
+      }
+
+
+    componentDidMount() {
+        this.props.timer()          
+    }
+
+    render() {
     const styleObject = {backgroundColor:"#ff8000"};
     return(
-        <div onLoad={handleName(props.fullName)} style={styleObject}> 
-            <h4>Name: {props.fullName}</h4> 
-            <h4>Bio: {props.bio}</h4> 
-            <h4>Profession:{props.profession}</h4> 
-            <h4>Image: {props.children}</h4> 
+        <div style={styleObject}> 
+            { this.props.shows &&
+            <React.Fragment>
+            <h4>Name: {this.props.fullName}</h4> 
+            <h4>Bio: {this.props.bio}</h4> 
+            <h4>Profession:{this.props.profession}</h4> 
+            <h4>Image: {this.props.children}</h4> 
+            <h4>seconds since last load: {this.props.time_elapsed}</h4>
+            </React.Fragment>
+            }   
+            <button onClick={this.props.onClick}> Show/Hide </button>
         </div>
     )
+    }
 }
 
 Profile.defaultProps = {
@@ -26,7 +45,8 @@ Profile.defaultProps = {
 Profile.propTypes = {
     fullName: PropTypes.string,
     bio: PropTypes.string,
-    profession: PropTypes.string
+    profession: PropTypes.string,
+    onClick: PropTypes.func
    };
    
 
