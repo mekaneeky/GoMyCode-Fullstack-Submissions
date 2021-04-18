@@ -1,7 +1,8 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import {Col} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 
 function StarRating(props) {
@@ -24,9 +25,10 @@ function MovieCard(props) {
            
     return (
         <Col xs="6" lg="6">
-
             <Card>
-                <Card.Img variant="top" src={props.photo} />
+                <Link to={"movie/" + props.movie_id }>
+                    <Card.Img variant="top" src={props.photo} />
+                </Link>
                 <Card.Body>
                     <Card.Title>{props.movie_name}</Card.Title>
                     <Card.Text>

@@ -17,6 +17,7 @@ function MovieForm(props) {
             desc:form_data["desc"],
             photo:form_data["photo"],
             rating:form_data["rating"],
+            trailer:form_data["trailer"],
             [nam]:val
         });
         console.log(form_data)
@@ -30,6 +31,7 @@ function MovieForm(props) {
             <Card>
                 <Form>
                     <Form.Control name="photo" type="text" placeholder="Photo URL" onChange={myChangeHandler}/>
+                    <Form.Control name="trailer" type="text" placeholder="Trailer URL" onChange={myChangeHandler}/>
                         <Card.Body>
                             <Form.Control name="movie_name" type="text" placeholder="Movie Name" onChange={myChangeHandler}/>
                             <Card.Text>

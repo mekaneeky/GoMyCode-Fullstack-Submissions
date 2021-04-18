@@ -14,11 +14,14 @@ function MovieList(props) {
         if (movie.movie_name.toLowerCase().includes(props.filterText.toLowerCase()) || props.filterText === "") {
             
             movies_elements.push(
-                <MovieCard 
+                <MovieCard
+                key={movie.id}
+                movie_id={movie.id}
                 movie_name={movie.movie_name} 
                 desc={movie.desc} 
                 rating={movie.rating} 
                 photo={movie.photo}
+                trailer={movie.trailer}
                 />
             )} else {
                 continue;

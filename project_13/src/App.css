@@ -3,6 +3,28 @@
   text-align: center;
 }
 
+iframe {
+    width:100%;
+    height:500px;
+}
+.stuff-404 {
+    padding-top: 25%;
+    padding-bottom:25%;
+}
+
+.col-12 h3 {
+    text-align: center;
+}
+
+.col-12 p {
+    text-align: center;
+}
+
+
+.col-12 h1 {
+    text-align: center;
+}
+
 #filter-bar {
     margin-top: 5%;
     margin-bottom: 5%;
