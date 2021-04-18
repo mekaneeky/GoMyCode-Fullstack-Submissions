@@ -8,7 +8,7 @@ function StarRating(props) {
     let stars_arr = [];
     for (let i = 0; i < 5; i++ ) {
         
-        if (i > props.stars) {
+        if (i+1 > props.stars) {
             stars_arr.push(<span className="fa fa-star"></span>)
         } else {
             stars_arr.push(<span className="fa fa-star checked"></span>)
@@ -20,18 +20,19 @@ function StarRating(props) {
 }
 
 function MovieCard(props) {
-       
+           let button_content = <Button variant="primary"><StarRating stars={props.rating} /></Button>
+           
     return (
         <Col xs="6" lg="6">
 
             <Card>
                 <Card.Img variant="top" src={props.photo} />
                 <Card.Body>
-                    <Card.Title>{props.name}</Card.Title>
+                    <Card.Title>{props.movie_name}</Card.Title>
                     <Card.Text>
                     {props.desc}
                     </Card.Text>
-                    <Button variant="primary"><StarRating stars={props.rating} /></Button>
+                    {button_content}
                 </Card.Body>
             </Card>
         </Col>

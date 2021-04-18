@@ -1,25 +1,35 @@
 import React from 'react';
 import MovieCard from './MovieCard';
+import MovieForm from './MovieForm';
 
 function MovieList(props) {
 
     let movies_elements = [];
+    console.log(props.movies)
     for (let movie of props.movies) {
-        if (movie.name.toLowerCase().includes(props.filterText.toLowerCase()) || props.filterText === "") {
-    
+
+        if (movie.movie_name === undefined) {
+            continue;
+        }
+        if (movie.movie_name.toLowerCase().includes(props.filterText.toLowerCase()) || props.filterText === "") {
+            
             movies_elements.push(
                 <MovieCard 
-                name={movie.name} 
+                movie_name={movie.movie_name} 
                 desc={movie.desc} 
                 rating={movie.rating} 
-                photo={movie.photo} />
+                photo={movie.photo}
+                />
             )} else {
                 continue;
         }
     }
        
     return (
-        movies_elements
+        <React.Fragment>
+        {movies_elements}
+        <MovieForm addMovie={props.addMovie} />
+        </React.Fragment>
     );
     
 
