@@ -1,0 +1,31 @@
+html
+  head
+    title Express Checkpoint
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+    integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
+    
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style
+      include main.css
+  body
+    nav(class="navbar navbar-light bg-light")
+      form(class="form-inline")
+        button(class="btn btn-outline-success", onclick="location.href='/'", type="button") Home
+        button(class="btn btn-outline-secondary", onclick="location.href='/about-us'", type="button") About Us
+        button(class="btn btn-outline-secondary", onclick="location.href='/contact-us'", type="button") Contact Us
+
+    h1 Contact Form
+
+    h2 Write your query and we will respond to it ASAP
+    
+    form(action='/contact-us', method='POST', id="contact-form")
+      p
+        | Name: 
+        input(type='text', name='name', value='')
+        |          Email: 
+        input(type='email', name='email', value='')
+        |          Query: 
+        input(type='textarea', name='query', value='')
+      input(type='submit', value='Submit')

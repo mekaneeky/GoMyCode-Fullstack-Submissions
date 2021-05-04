@@ -1,0 +1,27 @@
+h1, h2 {
+    color: purple;
+    margin:auto;
+    margin-bottom: 30px;
+    }
+
+#contact-form {
+    margin:auto;
+}
+#contact-form input{
+    display: block;
+}
+
+p {
+    margin:auto;
+}
+
+nav {
+    margin:auto;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
